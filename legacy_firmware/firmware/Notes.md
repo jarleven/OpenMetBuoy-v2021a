@@ -1,15 +1,13 @@
 
-´´´Bash
+```Bash
 
 arduino-cli version
 
 arduino-cli board list
 
 
-
-´´´
-
-´´´Bash
+```
+```Bash
 
 grep "pinMode" -ri
 board_control.cpp:  pinMode(LED, OUTPUT);
@@ -27,5 +25,5 @@ board_control.cpp:  pinMode(gnssEN, OUTPUT); // Configure the pin which enables 
 /home/jarleven/Arduino/libraries/Adafruit_LIS3MDL/examples/lis3mdl_demo/lis3mdl_demo.ino:  if (! lis3mdl.begin_I2C()) {          // hardware I2C mode, can pass in address & alt Wire
 /home/jarleven/Arduino/libraries/Adafruit_LIS3MDL/Adafruit_LIS3MDL.cpp:bool Adafruit_LIS3MDL::begin_I2C(uint8_t i2c_address, TwoWire *wire) {
 /home/jarleven/Arduino/libraries/Adafruit_LIS3MDL/Adafruit_LIS3MDL.h:  bool begin_I2C(uint8_t i2c_addr = LIS3MDL_I2CADDR_DEFAULT,
-´´´
+```
 
