@@ -1,0 +1,98 @@
+#!/bin/bash
+
+#
+# Create the build environment for the Arduino Sparkfun Artemis platform
+# The steps are as in the Dockerfile (thanks @gauteh)
+#
+# The script was created and tested on : Ubuntu 22.04.3 LTS \n \l
+#
+#
+#  /home/jarleven/bin/arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
+#  /home/jarleven/bin/arduino-cli upload --port /dev/ttyUSB0 -v -b SparkFun:apollo3:amap3redboard .
+#
+# Log serialport output :   screen /dev/ttyUSB0 1000000
+# Exit screen with :        ctrl-A k y
+#
+#  TODO: Fix for all users Install arduino-cli
+#  TODO: Fix serialport 
+
+sudo apt-get update
+sudo apt-get upgrade -y 
+sudo apt remove -y brltty
+# Rebooting works best after changing user rights on the serialport
+sudo usermod -a -G tty $USER
+sudo usermod -a -G dialout $USER
+
+sudo apt-get install -y curl git build-essential ffmpeg arduino-mk && sudo apt-get clean
+
+### Install not done """ curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+### TODO : I tried different stuff and I'm uncertain what actually worked for me....
+
+/home/jarleven/bin/arduino-cli config init
+
+
+ /home/jarleven/bin/arduino-cli config add board_manager.additional_urls https://raw.githubusercontent.com/sparkfun/Arduino_Apollo3/main/package_sparkfun_apollo3_index.json
+
+
+
+/home/jarleven/bin/arduino-cli core update-index
+/home/jarleven/bin/arduino-cli core install "Sparkfun:apollo3@1.2.1"
+
+/home/jarleven/bin/arduino-cli lib update-index
+
+
+# TODO arduino-cli folder
+# TODO arduino library folder
+#  $HOME/ should work !
+
+/home/jarleven/bin/arduino-cli lib install "Embedded Template Library ETL"
+touch /home/jarleven/Arduino/libraries/Embedded_Template_Library_ETL/src/etl.h
+/home/jarleven/bin/arduino-cli lib install Time
+/home/jarleven/bin/arduino-cli lib install "SparkFun Qwiic Power Switch Arduino Library"
+/home/jarleven/bin/arduino-cli lib install "SparkFun u-blox GNSS Arduino Library@2.0.2"
+/home/jarleven/bin/arduino-cli lib install IridiumSBDi2c
+/home/jarleven/bin/arduino-cli lib install "Adafruit LSM6DS@4.3.1"
+/home/jarleven/bin/arduino-cli lib install "Adafruit BusIO@1.7.2"
+/home/jarleven/bin/arduino-cli lib install "Adafruit LIS3MDL"
+/home/jarleven/bin/arduino-cli lib install "Adafruit AHRS@2.2.4"
+/home/jarleven/bin/arduino-cli lib install "OneWire@2.3.6"
+
+
+cd /home/jarleven/Arduino/libraries
+rm -rf Adafruit_BusIO
+git clone -b "fix/SPI_with_Artemis" --depth=1 https://github.com/jerabaul29/Adafruit_BusIO.git
+
+rm -rf Adafruit_LSM6DS
+git clone -b "feat/propagate_bool_flags" --depth=1 https://github.com/jerabaul29/Adafruit_LSM6DS.git
+
+rm -rf OneWire
+git clone -b "feat/Artemis_compatible" --depth=1 https://github.com/jerabaul29/OneWire.git
+
+cd ~
+
+git clone --depth=1 https://github.com/jerabaul29/OpenMetBuoy-v2021a.git
+
+
+cd OpenMetBuoy-v2021a/legacy_firmware/firmware/functionality_test_mode/
+mv tracker.ino functionality_test_mode.ino
+
+/home/jarleven/bin/arduino-cli compile -v -b SparkFun:apollo3:artemis .
+
+
+
+root@fb25dd462854:/work/OpenMetBuoy-v2021a/legacy_firmware/firmware/scanner# arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
+
+
+sudo docker run -it --device=/dev/ttyUSB0 omb_compiler:latest /bin/bash
+
+	/home/jarleven/bin/arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
+/home/jarleven/bin/arduino-cli upload --port /dev/ttyUSB0 -v -b SparkFun:apollo3:amap3redboard .
+
+screen /dev/ttyUSB0 1000000
+ctrl-A k y
+
+
+sudo apt remove brltty
+
+root@8249e876ee23:/work/OpenMetBuoy-v2021a/legacy_firmware/firmware/scanner# arduino-cli version
+arduino-cli  Version: 0.34.2 Commit: 963c1a76 Date: 2023-09-11T10:05:42Z
