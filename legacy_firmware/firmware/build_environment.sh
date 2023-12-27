@@ -14,9 +14,10 @@
 # Exit screen with :        ctrl-A k y
 #
 # Arduino CLI 
-#    arduino-cli version
-#    arduino-cli board list
-#
+#    arduino-cli version       # Print version
+#    arduino-cli board list    # List connected boards
+#    arduino-cli board listall # List installed boards
+#    arduino-cli lib list      # List installed libraries
 #
 
 sudo apt-get update
