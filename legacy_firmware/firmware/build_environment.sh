@@ -18,8 +18,6 @@
 #    arduino-cli board list
 #
 #
-#  TODO: Fix for all users Install arduino-cli
-#  TODO: Fix serialport 
 
 sudo apt-get update
 sudo apt-get upgrade -y 
@@ -41,11 +39,6 @@ arduino-cli core update-index
 arduino-cli core install "Sparkfun:apollo3@1.2.1"
 
 arduino-cli lib update-index
-
-
-# TODO arduino-cli folder
-# TODO arduino library folder
-#  $HOME/ should work !
 
 arduino-cli lib install "Embedded Template Library ETL"
 touch $HOME/Arduino/libraries/Embedded_Template_Library_ETL/src/etl.h
