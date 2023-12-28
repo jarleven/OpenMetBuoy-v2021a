@@ -12,6 +12,8 @@
 #
 # SparkFun OpenLog Artemis (without IMU) https://www.sparkfun.com/products/19426
 #     https://github.com/sparkfun/OpenLog_Artemis
+#     https://github.com/sparkfun/OpenLog_Artemis_GNSS_Logger
+#
 #     arduino-cli compile -v -b SparkFun:apollo3:sfe_artemis_atp .
 #
 #
