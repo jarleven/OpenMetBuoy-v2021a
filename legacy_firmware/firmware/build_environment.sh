@@ -27,6 +27,15 @@
 #    arduino-cli lib list      # List installed libraries
 #
 
+
+# I2C device found at address 0x19  !	Magnetic compass
+# I2C device found at address 0x41  ! Qwiic switch
+# I2C device found at address 0x42  !	GNSS
+# I2C device found at address 0x50  !	Kun MicroMod 2x, ESP32 og MicroProcessor
+# I2C device found at address 0x6B  ! 6DoF
+# I2C device found at address 0x7E 
+
+
 sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt remove -y brltty
