@@ -7,8 +7,13 @@
 # The script was created and tested on : Ubuntu 22.04.3 LTS \n \l
 #
 #
-#  /home/jarleven/bin/arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
-#  /home/jarleven/bin/arduino-cli upload --port /dev/ttyUSB0 -v -b SparkFun:apollo3:amap3redboard .
+#  arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
+#  arduino-cli upload --port /dev/ttyUSB0 -v -b SparkFun:apollo3:amap3redboard .
+#
+# SparkFun OpenLog Artemis (without IMU) https://www.sparkfun.com/products/19426
+#     https://github.com/sparkfun/OpenLog_Artemis
+#     arduino-cli compile -v -b SparkFun:apollo3:sfe_artemis_atp .
+#
 #
 # Log serialport output :   screen /dev/ttyUSB0 1000000
 # Exit screen with :        ctrl-A k y
