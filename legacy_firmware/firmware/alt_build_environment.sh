@@ -6,6 +6,7 @@ TODO:
   #include <stdlib.h>
   to use dtostrf() on the artemis you must first:
   #include <avr/dtostrf.h>
+  https://github.com/arduino/ArduinoCore-sam/blob/master/cores/arduino/avr/dtostrf.c
 
 # Libraries from the Artemis OpenLog project
 
