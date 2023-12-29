@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get install python3-pip
+python3 -m pip install icecream numpy matplotlib scipy   
+
 TODO:
   Using later versions of Arduino 
   we need to replace the 
