@@ -1,5 +1,12 @@
 #!/bin/bash
 
+TODO:
+  Using later versions of Arduino 
+  we need to replace the 
+  #include <stdlib.h>
+  to use dtostrf() on the artemis you must first:
+  #include <avr/dtostrf.h>
+
 # Libraries from the Artemis OpenLog project
 
 arduino-cli lib install "SdFat@2.2.0"
