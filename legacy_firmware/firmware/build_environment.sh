@@ -72,7 +72,7 @@ arduino-cli lib install "Embedded Template Library ETL"                    # 19.
 touch $HOME/Arduino/libraries/Embedded_Template_Library_ETL/src/etl.h
 arduino-cli lib install Time                                               # 1.6
 arduino-cli lib install "SparkFun Qwiic Power Switch Arduino Library"      # 1.0.0
-arduino-cli lib install "SparkFun u-blox GNSS Arduino Library@2.0.2"       # 1.0.0 
+arduino-cli lib install "SparkFun u-blox GNSS Arduino Library@2.0.2"       # ?.?.?
 arduino-cli lib install IridiumSBDi2c                                      # 3.0.1
 arduino-cli lib install "Adafruit LSM6DS@4.3.1"                            #  4.2.0
 arduino-cli lib install "Adafruit BusIO@1.7.2"                             # 1.7.2
