@@ -30,6 +30,7 @@
 #    arduino-cli board list    # List connected boards
 #    arduino-cli board listall # List installed boards
 #    arduino-cli lib list      # List installed libraries
+#    arduino-cli lib search
 #
 
 # TODO cleanup this list:
@@ -79,6 +80,12 @@ arduino-cli lib install "Adafruit LIS3MDL"                                 # 1.0
 arduino-cli lib install "Adafruit AHRS@2.2.4"                              # 2.2.4
 arduino-cli lib install "OneWire@2.3.6"                                    # 2.3.5
 
+# Added by jarleven to be in sync with original build environment
+# arduino-cli lib install "Wire@1.0" 
+# arduino-cli lib install "SPI@1.0"
+# arduino-cli lib install "Adafruit Sensor@1.1.4"
+# arduino-cli lib install "WDT@0.1"
+
 # Using library Wire at version 1.0 in folder:
 # Using library SPI at version 1.0 in folder:
 # Using library Adafruit_Sensor at version 1.1.4 in folder: 
@@ -88,11 +95,12 @@ cd $HOME/Arduino/libraries
 rm -rf Adafruit_BusIO
 git clone -b "fix/SPI_with_Artemis" --depth=1 https://github.com/jerabaul29/Adafruit_BusIO.git
 
-rm -rf Adafruit_LSM6DS
-git clone -b "feat/propagate_bool_flags" --depth=1 https://github.com/jerabaul29/Adafruit_LSM6DS.git
+# Was not patched to build the "functionality_test_mode" firmware
+# rm -rf Adafruit_LSM6DS
+# git clone -b "feat/propagate_bool_flags" --depth=1 https://github.com/jerabaul29/Adafruit_LSM6DS.git
 
-rm -rf OneWire
-git clone -b "feat/Artemis_compatible" --depth=1 https://github.com/jerabaul29/OneWire.git
+# rm -rf OneWire
+# git clone -b "feat/Artemis_compatible" --depth=1 https://github.com/jerabaul29/OneWire.git
 
 cd $HOME
 
