@@ -57,22 +57,27 @@ arduino-cli config init
 
 arduino-cli config add board_manager.additional_urls https://raw.githubusercontent.com/sparkfun/Arduino_Apollo3/main/package_sparkfun_apollo3_index.json
 
+# TODO: Comments are from functionality test mode legacy build (Original build)
 arduino-cli core update-index
 arduino-cli core install "Sparkfun:apollo3@1.2.1"
+# Using board 'artemis' from platform in folder: /home/jrmet/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1
+# Using core 'arduino' from platform in folder: /home/jrmet/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1
+
+
 
 arduino-cli lib update-index
 
-arduino-cli lib install "Embedded Template Library ETL"
+arduino-cli lib install "Embedded Template Library ETL"                    # 19.3.9 
 touch $HOME/Arduino/libraries/Embedded_Template_Library_ETL/src/etl.h
-arduino-cli lib install Time
-arduino-cli lib install "SparkFun Qwiic Power Switch Arduino Library"
-arduino-cli lib install "SparkFun u-blox GNSS Arduino Library@2.0.2"
-arduino-cli lib install IridiumSBDi2c
-arduino-cli lib install "Adafruit LSM6DS@4.3.1"
-arduino-cli lib install "Adafruit BusIO@1.7.2"
-arduino-cli lib install "Adafruit LIS3MDL"
-arduino-cli lib install "Adafruit AHRS@2.2.4"
-arduino-cli lib install "OneWire@2.3.6"
+arduino-cli lib install Time                                               # 1.6
+arduino-cli lib install "SparkFun Qwiic Power Switch Arduino Library"      # 1.0.0
+arduino-cli lib install "SparkFun u-blox GNSS Arduino Library@2.0.2"       # 1.0.0 
+arduino-cli lib install IridiumSBDi2c                                      # 3.0.1
+arduino-cli lib install "Adafruit LSM6DS@4.3.1"                            #  4.2.0
+arduino-cli lib install "Adafruit BusIO@1.7.2"                             # 1.7.2
+arduino-cli lib install "Adafruit LIS3MDL"                                 # 1.0.7
+arduino-cli lib install "Adafruit AHRS@2.2.4"                              # 2.2.4
+arduino-cli lib install "OneWire@2.3.6"                                    # 2.3.5
 
 
 cd $HOME/Arduino/libraries
