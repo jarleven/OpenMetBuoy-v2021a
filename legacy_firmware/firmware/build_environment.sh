@@ -112,6 +112,29 @@ mv tracker.ino functionality_test_mode.ino
 arduino-cli compile -v -b SparkFun:apollo3:artemis .
 
 #
+# Build 30.12.2023 functionality_test_mode
+#
+# Used library                                Version Path
+# WDT                                         0.1     /home/jarleven/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1/libraries/WDT
+# Time                                        1.6.1   /home/jarleven/Arduino/libraries/Time
+# Embedded Template Library ETL               20.22.0 /home/jarleven/Arduino/libraries/Embedded_Template_Library_ETL
+# Wire                                        1.0     /home/jarleven/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1/libraries/Wire
+# SparkFun Qwiic Power Switch Arduino Library 1.0.0   /home/jarleven/Arduino/libraries/SparkFun_Qwiic_Power_Switch_Arduino_Library
+# SparkFun u-blox GNSS Arduino Library        2.0.2   /home/jarleven/Arduino/libraries/SparkFun_u-blox_GNSS_Arduino_Library
+# IridiumSBDi2c                               3.0.6   /home/jarleven/Arduino/libraries/IridiumSBDi2c
+# Adafruit LSM6DS                             4.7.2   /home/jarleven/Arduino/libraries/Adafruit_LSM6DS
+# Adafruit BusIO                              1.7.2   /home/jarleven/Arduino/libraries/Adafruit_BusIO
+# SPI                                         1.0     /home/jarleven/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1/libraries/SPI
+# Adafruit Unified Sensor                     1.1.14  /home/jarleven/Arduino/libraries/Adafruit_Unified_Sensor
+# Adafruit AHRS                               2.2.4   /home/jarleven/Arduino/libraries/Adafruit_AHRS
+# OneWire                                     2.3.6   /home/jarleven/Arduino/libraries/OneWire
+# 
+# Used platform    Version Path
+# SparkFun:apollo3 1.2.1   /home/jarleven/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1
+# 
+
+
+#
 # root@fb25dd462854:/work/OpenMetBuoy-v2021a/legacy_firmware/firmware/scanner# arduino-cli compile -v -b SparkFun:apollo3:amap3redboard .
 #
 #
