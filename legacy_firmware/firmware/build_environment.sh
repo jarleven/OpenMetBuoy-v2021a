@@ -79,6 +79,10 @@ arduino-cli lib install "Adafruit LIS3MDL"                                 # 1.0
 arduino-cli lib install "Adafruit AHRS@2.2.4"                              # 2.2.4
 arduino-cli lib install "OneWire@2.3.6"                                    # 2.3.5
 
+# Using library Wire at version 1.0 in folder:
+# Using library SPI at version 1.0 in folder:
+# Using library Adafruit_Sensor at version 1.1.4 in folder: 
+# Using library WDT at version 0.1 in folder: 
 
 cd $HOME/Arduino/libraries
 rm -rf Adafruit_BusIO
