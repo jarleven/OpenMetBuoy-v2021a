@@ -17,9 +17,18 @@
 #     arduino-cli compile -v -b SparkFun:apollo3:sfe_artemis_atp .
 #
 #        Device found at address 0x41 Qwiic Power Switch
+
 #        Device found at address 0x6B 6DoF IMU Sparkfun ISM330DHCX
+#        Device found at address 0x7E (Also on the 6DoF)
 #        Device found at address 0x42 ZOE-M8Q GNSS
-#        Device found at address 0x7E ZOE-M8Q GNSS
+
+#        I2C device found at address 0x1C  Adafruit 3DoF magnetic compass
+#        I2C device found at address 0x6A  Adafruit 6 DoF
+#        I2C device found at address 0x7E  (Also on the Adafruit 6DoF)
+
+
+
+
 
 #
 # Log serialport output :   screen /dev/ttyUSB0 1000000
