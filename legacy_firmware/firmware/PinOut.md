@@ -9,7 +9,14 @@ https://learn.sparkfun.com/tutorials/dialog-ulp-wifi-da16200-r3-shield-hookup-gu
   4       --> RTC_PWR_KEY		 ~D22 (PDMCLK/SWO)
   3.3V    --> 3.3V
   GND     --> GND
-```	
+```
+
+### OpenLog-Artemis
+```
+
+
+```
+
 ### RedBoard-Artemis
 ```
 Arduino		Artemis
@@ -31,15 +38,15 @@ Arduino		Artemis
 ```
 
 
-
+### SparkFun Artemis Global Tracker
 ```  
-  D22 Supercap charger on Iridium board
+--- Supercap carger ---
+  D22 Supercap charger
   AD32 Header J10
   AD12 Header J11
   
-  Iridium board headers
-  
-  
+--- Headers ---
+    
    3.3v
    D4
    D35
