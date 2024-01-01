@@ -52,6 +52,10 @@ Arduino		Artemis
 --- I2C 4  Qwiic ---
 ~D15 SCL	(SCL4/SCK4/TX1)~D39
  D14 SDA	(SDA4/MISO4/RX1)D40
+
+--- UART ---
+TXO-0 ~D48(TX0/SCL5/SCK5)
+RXI-0 ~D49(RX0/SDA5/MISO5)
 ```
 
 
