@@ -1,5 +1,15 @@
 ### For experimenting with WiFi
 
+### The Qwiic connector
+```
+4 -- SCL   Yellow
+3 -- SDA   Blue
+2 -- 3.3v  Red
+1 -- GND   Black
+```
+
+
+
 https://learn.sparkfun.com/tutorials/dialog-ulp-wifi-da16200-r3-shield-hookup-guide/introduction
 
 ```
