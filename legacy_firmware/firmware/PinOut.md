@@ -37,6 +37,7 @@ RX	AD13
 ### RedBoard-Artemis
 ```
 Arduino		Artemis
+''''''''''''''''''''''''''
 --- I2C 0 ---
 ~D12		(SCL0/SCK0)~D5
 ~D13		(SDA0/MISO0/I2SDAT)~D6
