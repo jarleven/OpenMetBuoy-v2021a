@@ -13,6 +13,13 @@ https://learn.sparkfun.com/tutorials/dialog-ulp-wifi-da16200-r3-shield-hookup-gu
 
 ### OpenLog-Artemis
 ```
+--- 6 pin header ---
+GND
+3.3V
+32	AD32
+TX	AD12
+RX	AD13
+11	AD11
 
 
 ```
