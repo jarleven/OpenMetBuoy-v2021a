@@ -1,5 +1,9 @@
 #include "imu_manager.h"
 
+// Adafruit 0x6A
+// Sparkfun 0x6B
+#define LSM6DS_I2CADDR 0x6B
+
 Adafruit_ISM330DHCX ism330dhcx;
 //Adafruit_LIS3MDL lis3mdl;
 Adafruit_NXPSensorFusion Kalman_filter;
@@ -27,7 +31,7 @@ bool IMU_Manager::start_IMU(){
 
   Serial.println("Adafruit ISM330DHCX start!");
   while (true){
-    if (!ism330dhcx.begin_I2C(LSM6DS_I2CADDR_DEFAULT,
+    if (!ism330dhcx.begin_I2C(LSM6DS_I2CADDR,
                      &ArtemisWire, 0)) {
       Serial.println("Failed to find ISM330DHCX chip, will try again...");
       delay(500);
