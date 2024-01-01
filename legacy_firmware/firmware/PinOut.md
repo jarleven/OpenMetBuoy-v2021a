@@ -66,7 +66,12 @@ RXI-0 ~D49(RX0/SDA5/MISO5)
   D22 Supercap charger
   AD32 Header J10
   AD12 Header J11
-  
+
+--- GNSS ---
+
+D8 --- (SCL1/SCK1/TX1/SCCLK)D8
+D9 --- (SDA1/SDI1/RX1/SCCIO)D9
+
 --- Headers ---
     
    3.3v
