@@ -49,6 +49,8 @@
 # I2C device found at address 0x50  !	Kun MicroMod 2x, ESP32 og MicroProcessor
 # I2C device found at address 0x6B  ! 6DoF
 # I2C device found at address 0x7E 
+# 0x76 Global tracker : pressure and temperature
+# 0x40 Global tracker : relative humidity
 
 
 sudo apt-get update
