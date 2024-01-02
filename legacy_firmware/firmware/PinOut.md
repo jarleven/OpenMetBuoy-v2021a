@@ -43,7 +43,6 @@ Arduino		Artemis
 ~D13		(SDA0/MISO0/I2SDAT)~D6
 
 --- I2C 2 ---
-apollo3/1.2.1 this is   Wire1.begin();
 ~D0/RXI-1	(SDA2/MISO2/RX1)~D25
 ~D6		(SCL2/SCK2)~D27
 
@@ -52,7 +51,6 @@ apollo3/1.2.1 this is   Wire1.begin();
  D25 TP13	(SDA1/MISO1/RX1/SCCIO)D9
 
 --- I2C 4  Qwiic ---
-apollo3/1.2.1 this is   Wire.begin();
 ~D15 SCL	(SCL4/SCK4/TX1)~D39
  D14 SDA	(SDA4/MISO4/RX1)D40
 
