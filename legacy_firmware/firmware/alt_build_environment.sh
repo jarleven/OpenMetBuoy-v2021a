@@ -3,13 +3,13 @@
 sudo apt-get install python3-pip
 python3 -m pip install icecream numpy matplotlib scipy   
 
-TODO:
-  Using later versions of Arduino 
-  we need to replace the 
-  #include <stdlib.h>
-  to use dtostrf() on the artemis you must first:
-  #include <avr/dtostrf.h>
-  https://github.com/arduino/ArduinoCore-sam/blob/master/cores/arduino/avr/dtostrf.c
+#TODO:
+#  Using later versions of Arduino 
+#  we need to replace the 
+#  #include <stdlib.h>
+#  to use dtostrf() on the artemis you must first:
+#  #include <avr/dtostrf.h>
+#  https://github.com/arduino/ArduinoCore-sam/blob/master/cores/arduino/avr/dtostrf.c
 
 # Libraries from the Artemis OpenLog project
 
@@ -36,7 +36,7 @@ arduino-cli lib install "SparkFun Qwiic Humidity AHT20"
 arduino-cli lib install "SparkFun SHTC3 Humidity and Temperature Sensor Library"
 arduino-cli lib install "SparkFun ADS122C04 ADC Arduino Library"
 arduino-cli lib install "SparkFun MicroPressure Library"
-arduino-cli lib install "SparkFun Particle Sensor Panasonic SN-GCJA5
+airduino-cli lib install "SparkFun Particle Sensor Panasonic SN-GCJA5"
 arduino-cli lib install "SparkFun SGP40 Arduino Library"
 arduino-cli lib install "SparkFun SDP3x Arduino Library"
 arduino-cli lib install "SparkFun Qwiic Button and Qwiic Switch Library"
