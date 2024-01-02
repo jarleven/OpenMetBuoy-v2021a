@@ -63,6 +63,7 @@ sudo usermod -a -G dialout $USER
 sudo apt-get install -y curl git build-essential ffmpeg arduino-mk && sudo apt-get clean
 
 # From Arduino-CLI, slightly different than in the Dockerfile
+cd $HOME
 curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | sh
 
 arduino-cli config init
