@@ -24,7 +24,7 @@ arduino-cli config add board_manager.additional_urls https://raw.githubuserconte
 
 # TODO: Comments are from functionality test mode legacy build (Original build)
 arduino-cli core update-index
-arduino-cli core install "Sparkfun:apollo3@1.2.1"
+arduino-cli core install "Sparkfun:apollo3@2.1.0"
 # Using board 'artemis' from platform in folder: /home/jrmet/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1
 # Using core 'arduino' from platform in folder: /home/jrmet/.arduino15/packages/SparkFun/hardware/apollo3/1.2.1
 
