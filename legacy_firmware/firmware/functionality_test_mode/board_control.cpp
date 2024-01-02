@@ -1,6 +1,6 @@
 #include "board_control.h"
 
-TwoWire ArtemisWire(4);
+TwoWire ArtemisWire(qwiic_i2c_port);
 QWIIC_POWER qwiic_switch;
 
 void blink_LED_n_times(unsigned int number_of_blinks, float frequency_hz){
