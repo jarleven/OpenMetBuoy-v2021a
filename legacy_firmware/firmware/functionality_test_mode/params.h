@@ -6,6 +6,9 @@
 
 constexpr unsigned long baudrate_debug_serial = 1000000;
 
+constexpr int qwiic_i2c_port {4};
+constexpr int gnss_i2c_port {2};
+
 // TODO: use some form of constexpr if instead
 // first declare the variables and document
 // then use if constexpr to set the values
