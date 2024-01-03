@@ -1,27 +1,20 @@
 #define WIFI_SERIAL_BAUD 115200
 
+//#define WIFI_TX 1  // (TX pin on Uno)
+//#define WIFI_RX 0  // (RX pin on Uno)
 
-D9 ~AD12(PDMCLK/TX1)
-D10 ~AD13(I2SBCLK/RX1)
-
-//#define WIFI_RX 1  (TX pin on Uno)
-//#define WIFI_TX 0  (RX pin on Uno)
-#define WIFI_RX 9
-#define WIFI_TX 8
+#define WIFI_RX 10
+#define WIFI_TX 9
 
 #define RTC_PWR_KEY 4
 #define UART_INSTANCE 1
-
-//Uart Serial1{UART_INSTANCE, WIFI_RX, WIFI_TX};  // Arduino pinout
-//UART Serial1{UART_INSTANCE, WIFI_RX, WIFI_TX};
-
 
 String wifiSSID = "ROS24";
 String wifiPass = "Password1!";
 
 int timezoneOffset = 0; //The hours offset from UTC (Mountain time is -6 for daylight savings, and -7 for standard)
 
-Uart WiFiSerial(1, WIFI_TX, WIFI_RX);
+Uart WiFiSerial(1, WIFI_RX, WIFI_TX);
 
 void setup() {
   Serial.begin(1000000);
