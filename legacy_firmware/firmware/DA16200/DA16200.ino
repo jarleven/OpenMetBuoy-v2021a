@@ -1,7 +1,11 @@
 #define WIFI_SERIAL_BAUD 115200
 
-//#define WIFI_RX 1
-//#define WIFI_TX 0
+
+D9 ~AD12(PDMCLK/TX1)
+D10 ~AD13(I2SBCLK/RX1)
+
+//#define WIFI_RX 1  (TX pin on Uno)
+//#define WIFI_TX 0  (RX pin on Uno)
 #define WIFI_RX 9
 #define WIFI_TX 8
 
