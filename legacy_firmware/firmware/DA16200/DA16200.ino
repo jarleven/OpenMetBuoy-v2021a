@@ -39,9 +39,9 @@ void setup() {
   String msg = "";
   while(count<20)
   {
-    while(Serial1.available())
+    while( WiFiSerial.available())
     {
-      msg += char(Serial1.read());
+      msg += char( WiFiSerial.read());
     }
     if(msg.length() > 5) break;
     count++;
@@ -63,15 +63,15 @@ void setup() {
 
   //Configure module for STA mode
   Serial.println("Sending:AT+WFMODE=0");
-  Serial1.println("AT+WFMODE=0");
+   WiFiSerial.println("AT+WFMODE=0");
 
   //Wait for "OK" response
   while(1)
   {
     msg = "";
-    while(Serial1.available())
+    while( WiFiSerial.available())
     {
-      msg += char(Serial1.read());
+      msg += char( WiFiSerial.read());
       delay(1);
     }
     Serial.print(msg);
@@ -80,15 +80,15 @@ void setup() {
 
   //Apply a software reset to finish changing the mode
   Serial.println("Sending:AT+RESTART");
-  Serial1.println("AT+RESTART");
+   WiFiSerial.println("AT+RESTART");
 
   //Wait for "OK" response
   while(1)
   {
     msg = "";
-    while(Serial1.available())
+    while( WiFiSerial.available())
     {
-      msg += char(Serial1.read());
+      msg += char( WiFiSerial.read());
       delay(1);
     }
     Serial.print(msg);
@@ -100,9 +100,9 @@ void setup() {
   msg = "";
   while(count<20)
   {
-    while(Serial1.available())
+    while( WiFiSerial.available())
     {
-      msg += char(Serial1.read());
+      msg += char( WiFiSerial.read());
     }
     if(msg.length() > 5) break;
     count++;
@@ -126,15 +126,15 @@ void setup() {
 
   //Connect to WiFi using the provided credentials
   Serial.println("Sending:AT+WFJAPA=" + wifiSSID + "," + wifiPass);
-  Serial1.println("AT+WFJAPA=" + wifiSSID + "," + wifiPass);
+   WiFiSerial.println("AT+WFJAPA=" + wifiSSID + "," + wifiPass);
 
   Serial.println("Waiting for connection response...");
   while(1)
   {
     msg = "";
-    while(Serial1.available())
+    while( WiFiSerial.available())
     {
-      msg += char(Serial1.read());
+      msg += char( WiFiSerial.read());
       delay(1);
     }
 
@@ -153,15 +153,15 @@ void setup() {
   {
       //Talk to NTP server to get the current time, along with how often to get time sync
       Serial.println("Sending:AT+NWSNTP=1,pool.ntp.org,86400");
-      Serial1.println("AT+NWSNTP=1,pool.ntp.org,86400");
+       WiFiSerial.println("AT+NWSNTP=1,pool.ntp.org,86400");
 
       //Wait for "OK" response
       while(1)
       {
         String msg = "";
-        while(Serial1.available())
+        while( WiFiSerial.available())
         {
-          msg += char(Serial1.read());
+          msg += char( WiFiSerial.read());
           delay(1);
         }
         Serial.print(msg);
@@ -170,15 +170,15 @@ void setup() {
 
       //Provides the correct UTC offset for the current time
       Serial.println("Sending:AT+TZONE="+String(timezoneOffset*3600));
-      Serial1.println("AT+TZONE="+String(timezoneOffset*3600));
+       WiFiSerial.println("AT+TZONE="+String(timezoneOffset*3600));
 
       //Wait for "OK" response
       while(1)
       {
         String msg = "";
-        while(Serial1.available())
+        while( WiFiSerial.available())
         {
-          msg += char(Serial1.read());
+          msg += char( WiFiSerial.read());
           delay(1);
         }
         Serial.print(msg);
@@ -196,11 +196,11 @@ void setup() {
 void loop() {
   //Get the current time
   Serial.println("Sending:AT+TIME");
-  Serial1.println("AT+TIME");
+   WiFiSerial.println("AT+TIME");
 
-  while(Serial1.available())
+  while( WiFiSerial.available())
   {
-    Serial.print(char(Serial1.read()));
+    Serial.print(char( WiFiSerial.read()));
     delay(1);
   }
 
