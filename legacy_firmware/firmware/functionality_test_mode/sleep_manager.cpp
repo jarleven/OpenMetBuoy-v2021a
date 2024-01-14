@@ -144,7 +144,7 @@ void wake_up(void){
 
   Wire.begin();
   delay(100);
-  Wire.setClock(1000000);
+  //Wire.setClock(1000000);
   delay(100);
   wdt.restart();
   Serial.println(F("started Wire"));
