@@ -7,8 +7,6 @@
 #include "etl.h"
 #include "etl/vector.h"
 
-#include "ard_supers/avr/dtostrf.h"
-
 //--------------------------------------------------------------------------------
 // common printing buffer
 

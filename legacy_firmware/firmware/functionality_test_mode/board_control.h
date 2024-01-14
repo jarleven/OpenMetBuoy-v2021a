@@ -72,7 +72,6 @@ void turn_thermistors_off(void);
 //--------------------------------------------------------------------------------
 //making the ArtemisWire Qwiic port and Qwiic switch available to all 
 
-extern TwoWire ArtemisWire;
 extern QWIIC_POWER qwiic_switch;
 
 #endif

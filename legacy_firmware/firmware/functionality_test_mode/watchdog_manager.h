@@ -3,6 +3,4 @@
 
 #include "WDT.h"
 
-extern APM3_WDT wdt;
-
 #endif

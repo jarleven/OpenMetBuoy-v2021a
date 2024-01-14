@@ -4,7 +4,6 @@
 #include "Arduino.h"
 
 #include "arm_math.h"
-#include "ard_supers/avr/dtostrf.h"
 
 #include "etl.h"
 #include "etl/vector.h"

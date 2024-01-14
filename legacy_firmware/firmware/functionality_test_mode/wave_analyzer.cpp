@@ -274,7 +274,7 @@ void WaveAnalyzer::perform_welch_analysis_imu_data(void){
 
 void WaveAnalyzer::init_fast_instance(void){
   Serial.println(F("start init fast struct"));
-  crrt_arm_status = arm_rfft_2048_fast_init_f32(&crrt_arm_rfft_fast_instance_f32);
+  crrt_arm_status = arm_rfft_fast_init_f32(&crrt_arm_rfft_fast_instance_f32, 2048);
   Serial.print(F("done init fast struct, status: ")); Serial.println(crrt_arm_status);
   wdt.restart();
 }

@@ -75,8 +75,8 @@ void prepare_to_sleep(void){
   turn_thermistors_off();
   delay(50);
 
-  Serial.println(F("power down ArtemisWire"));
-  ArtemisWire.end();
+  Serial.println(F("power down Wire"));
+  Wire.end();
   wdt.restart();
   delay(100);
 
@@ -87,47 +87,54 @@ void prepare_to_sleep(void){
   Serial.end();
   delay(50);
 
-  // Turn off ADC
-  power_adc_disable();
-    
-  // Disabling the debugger GPIOs saves about 1.2 uA total:
-  am_hal_gpio_pinconfig(20 /* SWDCLK */, g_AM_HAL_GPIO_DISABLE);
-  am_hal_gpio_pinconfig(21 /* SWDIO */, g_AM_HAL_GPIO_DISABLE);
+#if 0
+  // Disable ADC
+  powerControlADC(false);
 
-  // These two GPIOs are critical: the TX/RX connections between the Artemis module and the CH340S
-  // are prone to backfeeding each other. To stop this from happening, we must reconfigure those pins as GPIOs
-  // and then disable them completely:
-  am_hal_gpio_pinconfig(48 /* TXO-0 */, g_AM_HAL_GPIO_DISABLE);
-  am_hal_gpio_pinconfig(49 /* RXI-0 */, g_AM_HAL_GPIO_DISABLE);
+  // Force the peripherals off
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM0);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM1);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM2);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM3);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM4);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_IOM5);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_ADC);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_UART0);
+  am_hal_pwrctrl_periph_disable(AM_HAL_PWRCTRL_PERIPH_UART1);
 
-  //Power down Flash, SRAM, cache
-  am_hal_pwrctrl_memory_deepsleep_powerdown(AM_HAL_PWRCTRL_MEM_ALL); // Power down all flash and cache
-  am_hal_pwrctrl_memory_deepsleep_retain(AM_HAL_PWRCTRL_MEM_SRAM_384K); // Retain all SRAM
+  // Disable all pads (except UART TX/RX)
+  for (int x = 0 ; x < 50 ; x++)
+    am_hal_gpio_pinconfig(x, g_AM_HAL_GPIO_DISABLE);
 
-  //Keep the 32kHz clock running for RTC
+  //Power down CACHE, flashand SRAM
+  am_hal_pwrctrl_memory_deepsleep_powerdown(AM_HAL_PWRCTRL_MEM_ALL); // Turn off CACHE and flash
+  am_hal_pwrctrl_memory_deepsleep_retain(AM_HAL_PWRCTRL_MEM_SRAM_384K); // Retain all SRAM (0.6 uA)
+
+  // Keep the 32kHz clock running for RTC
   am_hal_stimer_config(AM_HAL_STIMER_CFG_CLEAR | AM_HAL_STIMER_CFG_FREEZE);
   am_hal_stimer_config(AM_HAL_STIMER_XTAL_32KHZ);
+#endif
 }
 
 void wake_up(void){
-  //Power up SRAM, turn on entire Flash
-  am_hal_pwrctrl_memory_deepsleep_powerdown(AM_HAL_PWRCTRL_MEM_MAX);
-
-  //Go back to using the main clock
+#if 0
+  // Go back to using the main clock
   am_hal_stimer_config(AM_HAL_STIMER_CFG_CLEAR | AM_HAL_STIMER_CFG_FREEZE);
   am_hal_stimer_config(AM_HAL_STIMER_HFRC_3MHZ);
 
-  // Restore the TX/RX connections between the Artemis module and the CH340S on the Blackboard
-  am_hal_gpio_pinconfig(48 /* TXO-0 */, g_AM_BSP_GPIO_COM_UART_TX);
-  am_hal_gpio_pinconfig(49 /* RXI-0 */, g_AM_BSP_GPIO_COM_UART_RX);
+  // Renable UART0 pins
+  am_hal_gpio_pinconfig(48, g_AM_BSP_GPIO_COM_UART_TX);
+  am_hal_gpio_pinconfig(49, g_AM_BSP_GPIO_COM_UART_RX);
 
-  // Reenable the debugger GPIOs
-  am_hal_gpio_pinconfig(20 /* SWDCLK */, g_AM_BSP_GPIO_SWDCK);
-  am_hal_gpio_pinconfig(21 /* SWDIO */, g_AM_BSP_GPIO_SWDIO);
+  // Renable power to UART0
+  am_hal_pwrctrl_periph_enable(AM_HAL_PWRCTRL_PERIPH_UART0);
 
-  //Turn on ADC
-  ap3_adc_setup();
-  ap3_set_pin_to_analog(busVoltagePin);
+  // Enable ADC
+  initializeADC();
+
+  // Enable ADC
+  initializeADC();
+#endif
 
   Serial.begin(baudrate_debug_serial);
   delay(100);
@@ -135,15 +142,15 @@ void wake_up(void){
   Serial.println(F("------ WAKE UP ------"));
   Serial.println(F("powered up board"));
 
-  ArtemisWire.begin();
+  Wire.begin();
   delay(100);
-  ArtemisWire.setClock(1000000);
+  Wire.setClock(1000000);
   delay(100);
   wdt.restart();
-  Serial.println(F("started ArtemisWire"));
+  Serial.println(F("started Wire"));
 
   Serial.println(F("start qwiic switch"));
-  if (qwiic_switch.begin(ArtemisWire) == false){
+  if (qwiic_switch.begin(Wire) == false){
       Serial.println(F("Qwiic Power Switch not detected at default I2C address. Please check wiring. Freezing."));
       while (true){;}
   }

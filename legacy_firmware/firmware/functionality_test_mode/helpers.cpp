@@ -3,6 +3,13 @@
 /* Buffer for storing the formatted data */
 char serial_print_buff[serial_print_max_buffer];
 
+char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
+  char fmt[20];
+  sprintf(fmt, "%%%d.%df", width, prec);
+  sprintf(sout, fmt, val);
+  return sout;
+}
+
 void serialPrintf(const char *fmt, ...) {
   /* pointer to the variable arguments list */
   va_list pargs;

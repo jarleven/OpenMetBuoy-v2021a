@@ -1,4 +1,5 @@
 #include "imu_manager.h"
+#include "BurstMode.h"
 
 // Adafruit 0x6A
 // Sparkfun 0x6B
@@ -31,8 +32,7 @@ bool IMU_Manager::start_IMU(){
 
   Serial.println("Adafruit ISM330DHCX start!");
   while (true){
-    if (!ism330dhcx.begin_I2C(LSM6DS_I2CADDR,
-                     &ArtemisWire, 0)) {
+    if (!ism330dhcx.begin_I2C(LSM6DS_I2CADDR)) {
       Serial.println("Failed to find ISM330DHCX chip, will try again...");
       delay(500);
     }

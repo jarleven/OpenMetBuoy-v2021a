@@ -40,7 +40,7 @@ class IridiumManager{
     void reboot_if_requested_through_iridium(void);
 
   private:
-    Uart iridium_serial{1, 25, 24};
+    UART iridium_serial{1, 0};
     IridiumSBD iridium_sbd{iridium_serial, iridiumSleep, iridiumRI};
 
     unsigned char iridium_tx_raw_buffer[iridium_tx_buffer_size];
